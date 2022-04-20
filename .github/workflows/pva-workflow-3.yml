@@ -16,6 +16,9 @@ on:
         required: true
         default: "main"
 
+env:
+  workflow_scripts_path: .github/workflows/scripts
+
 jobs:
   delete-and-import-unmanaged-solution:
     runs-on: ubuntu-latest
