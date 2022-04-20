@@ -11,10 +11,6 @@ on:
         description: "http endpoint of your Dataverse environment"
         required: true
         default: "https://[your-env].crm[x].dynamics.com"
-      ref:
-        description: "the ref (branch, commit, tag) you want to import"
-        required: true
-        default: "main"
 
 env:
   workflow_scripts_path: .github/workflows/scripts
