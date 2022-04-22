@@ -2,23 +2,23 @@ name: pva-workflow-3
 on:
   workflow_dispatch:
     inputs:
-       solution_name:
+     solution_name:
         description: "name of the Solution in Dataverse environment"
         required: true
         default: MicaSolution
-      environment_url:
+     environment_url:
         description: "http endpoint of your Dataverse environment"
         required: true
         default: "https://orgea394ded.crm.dynamics.com/"
-      source_branch:
+     source_branch:
         description: "source branch"
         required: true
         default: main
-      branch_to_create:
+     branch_to_create:
         description: "branch to create"
         required: false
         default: "init2"
-      commit_message:
+     commit_message:
         description: "message to provide for the commit"
         required: true
         default: "init message"
