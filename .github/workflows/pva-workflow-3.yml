@@ -42,11 +42,9 @@ jobs:
               repo: context.repo.repo,
               workflow_id: 'pva-workflow-2.yml',
               ref: '${{ github.ref }}',
-              inputs: {
-                from_branch: '${{ github.event.inputs.source_branch }}',
-                to_branch: '${{ github.event.inputs.branch_to_create }}'
-              }
-            })
+              from_branch: '${{ github.event.inputs.source_branch }}',
+              to_branch: '${{ github.event.inputs.branch_to_create }}'
+              })
 
       - name: check-pva-workflow-2-workflow-status
         id: check-pva-workflow-2-workflow-status
