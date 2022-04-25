@@ -1,0 +1,8 @@
+<botcomponent schemaname="new_topic_fa11ab99a2b148c1969e7318e9ce9840_f56d1a3e522740c78f9fac0939332dbd_goodbye">
+  <componenttype>0</componenttype>
+  <description>System Intent Goodbye</description>
+  <iscustomizable>1</iscustomizable>
+  <name>Goodbye</name>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>
