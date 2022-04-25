@@ -6,19 +6,19 @@ on:
         description: "name of the Solution in Dataverse environment"
         required: true
         default: MicaSolution
-       environment_url:
+      environment_url:
         description: "http endpoint of your Dataverse environment"
         required: true
         default: "https://orgea394ded.crm.dynamics.com/"
-       source_branch:
+      source_branch:
         description: "source branch"
         required: true
         default: main
-       branch_to_create:
+      branch_to_create:
         description: "branch to create"
         required: false
         default: "init2"
-       commit_message:
+      commit_message:
         description: "message to provide for the commit"
         required: true
         default: "init message"
@@ -30,10 +30,10 @@ jobs:
   pva-workflow-2:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: pva-workflow-2
         id: pva-workflow-2
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           github-token: ${{secrets.WORKFLOW_DISPATCH_TOKEN}}
           script: |
@@ -53,7 +53,7 @@ jobs:
 
       - name: check-pva-workflow-2-workflow-status
         id: check-pva-workflow-2-workflow-status
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           script: |
             let sleep = require('${{ env.workflow_scripts_path }}/js/Sleep.js')
@@ -85,7 +85,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: delete-and-import-unmanaged-solution
         id: delete-and-import-unmanaged-solution
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           github-token: ${{secrets.WORKFLOW_DISPATCH_TOKEN}}
           script: |
@@ -103,7 +103,7 @@ jobs:
 
       - name: check-delete-and-import-unmanaged-solution-workflow-status
         id: check-delete-and-import-unmanaged-solution-workflow-status
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         with:
           script: |
             let sleep = require('${{ env.workflow_scripts_path }}/js/Sleep.js')
