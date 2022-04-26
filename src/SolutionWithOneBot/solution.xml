@@ -1,0 +1,30 @@
+<ImportExportXml version="9.2.22033.156" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionManifest>
+    <UniqueName>SolutionWithOneBot</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="SolutionWithOneBot" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0.1</Version>
+    <Managed>0</Managed>
+    <Publisher>
+      <UniqueName>Cr72b91</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="CDS Default Publisher" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions />
+      <EMailAddress xsi:nil="true"></EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>cr3c5</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>10249</CustomizationOptionValuePrefix>
+      <Addresses />
+    </Publisher>
+    <RootComponents />
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="bot" displayName="new_bot_11de385c82a24c708b02ca53c9f78a86" solution="SolutionWithTwoBots (1.0.20220426.18)" id.schemaname="new_bot_11de385c82a24c708b02ca53c9f78a86" />
+        <Dependent type="bot" displayName="new_bot_11de385c82a24c708b02ca53c9f78a86" id.schemaname="new_bot_11de385c82a24c708b02ca53c9f78a86" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>
