@@ -5,6 +5,9 @@ module.exports = async ({ github, context, envInputString }) => {
   });
 
   if (res.data.environments.length > 0) {
+    console.log(
+      res.data.environments.find((env) => env.name === envInputString)
+    );
     if (!res.data.environments.find((env) => env.name === envInputString)) {
       core.setFailed("The environment does not exits");
     }
