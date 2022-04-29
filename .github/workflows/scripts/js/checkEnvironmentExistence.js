@@ -1,4 +1,4 @@
-module.exports = async ({ context, envInputString }) => {
+module.exports = async ({ github, context, envInputString }) => {
   let res = await github.rest.repos.getAllEnvironments({
     owner: context.repo.owner,
     repo: context.repo.repo,
