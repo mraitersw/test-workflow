@@ -22,16 +22,9 @@ jobs:
         with:
           github-token: ${{secrets.WORKFLOW_DISPATCH_TOKEN}}
           script: |
-            let res = await github.rest.repos.getAllEnvironments({
-              owner: context.repo.owner,
-              repo: context.repo.repo
-            })
-
-            if (res.data.environments.length > 0) {
-              if(!res.data.environments.find(env => env.name === '${{ github.event.inputs.environment }}')){
-              core.setFailed('The environment does not exits')
-              }        
-            }
+            const checkEnvironmentExistence = require('${{ env.workflow_scripts_path }}/js/createCommitStatuses.js')
+            const envInputString = '${{ github.event.inputs.environment }}'      
+            await checkEnvironmentExistence({ context, envInputString })
 
       - uses: actions/checkout@v3
       - name: check-branch-existence
