@@ -10,6 +10,21 @@ env:
   workflow_scripts_path: .github/workflows/scripts
 
 jobs:
+ check-environment-existence:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: check-environment-existence
+        id: check-environment-existence
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.WORKFLOW_DISPATCH_TOKEN}}
+          script: |
+            const checkEnvironmentExistence = require('${{ env.workflow_scripts_path }}/js/checkEnvironmentExistence.js')
+            const envInputString = '${{ github.event.inputs.environment }}'      
+            await checkEnvironmentExistence({ github,context, envInputString })
+
   execute-pva-workflow-1:
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.environment }}
