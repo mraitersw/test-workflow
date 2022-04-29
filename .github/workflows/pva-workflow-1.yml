@@ -14,6 +14,8 @@ jobs:
   export-unpack-commit-solution:
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.environment }}
+    outputs:
+      environments: ${{res.data.environments}}
     steps:
       - uses: actions/checkout@v3
       - name: check-branch-existence
