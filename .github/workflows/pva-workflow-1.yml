@@ -22,7 +22,7 @@ jobs:
         with:
           github-token: ${{secrets.WORKFLOW_DISPATCH_TOKEN}}
           script: |
-            const checkEnvironmentExistence = require('${{ env.workflow_scripts_path }}/js/createCommitStatuses.js')
+            const checkEnvironmentExistence = require('${{ env.workflow_scripts_path }}/js/checkEnvironmentExistence.js')
             const envInputString = '${{ github.event.inputs.environment }}'      
             await checkEnvironmentExistence({ context, envInputString })
 
