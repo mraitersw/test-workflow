@@ -10,7 +10,7 @@ env:
   workflow_scripts_path: .github/workflows/scripts
 
 jobs:
- check-environment-existence:
+  check-environment-existence:
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.environment }}
     steps:
