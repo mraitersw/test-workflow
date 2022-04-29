@@ -14,12 +14,10 @@ jobs:
   export-unpack-commit-solution:
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.environment }}
-    outputs:
-      environments: ${{res.data.environments}}
     steps:
       - uses: actions/checkout@v3
-      - name: check-branch-existence
-        id: check-branch-existence
+      - name: check-environment-existence
+        id: check-environment-existence
         uses: actions/github-script@v6
         with:
           github-token: ${{secrets.WORKFLOW_DISPATCH_TOKEN}}
@@ -30,10 +28,10 @@ jobs:
             })
 
             if (res.data.environments.length > 0) {
-           if(!res.data.environments.find(env => env.name ===  github.event.inputs.environment)){
-              core.setFailed('The environment doesn't exits')
-           }        
-            } 
+              if(!res.data.environments.find(env => env.name ===  github.event.inputs.environment)){
+                  core.setFailed('The environment doesn't exits')
+              }        
+            }
 
       - uses: actions/checkout@v3
       - name: check-branch-existence
