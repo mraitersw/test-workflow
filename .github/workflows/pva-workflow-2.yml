@@ -24,6 +24,18 @@ jobs:
             const checkEnvironmentExistence = require('${{ env.workflow_scripts_path }}/js/checkEnvironmentExistence.js')
             const envInputString = '${{ github.event.inputs.environment }}'      
             await checkEnvironmentExistence({ github,context, envInputString })
+             let res = await github.rest.repos.getAllEnvironments({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            });
+            if (res.data.environments.length > 0) {
+              console.log(
+                res.data.environments.find((env) => env.name === envInputString)
+              );
+              if (!res.data.environments.find((env) => env.name === envInputString)) {
+                core.setFailed("The environment does not exits");
+              }
+            }
 
   execute-pva-workflow-1:
     runs-on: ubuntu-latest
