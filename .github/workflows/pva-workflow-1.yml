@@ -14,7 +14,30 @@ jobs:
   export-unpack-commit-solution:
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.environment }}
+    outputs: ${{res.data.environments}}
+    status: ${{ steps.early.conclusion }}
     steps:
+      - uses: actions/checkout@v3
+      - name: check-environment-existence
+        id: check-environment-existence
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.WORKFLOW_DISPATCH_TOKEN}}
+          script: |
+            let res = await github.rest.repos.getAllEnvironments({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            })      
+  cancel:      
+      - name: 'Cancel Other Workflow'
+        runs-on: ubuntu-latest
+        if: needs.export-unpack-commit-solution.lenght > 0
+    steps:
+      - uses: styfle/cancel-workflow-action@0.9.0
+        with:
+          access_token: ${{ github.token }}    
+
+
       - uses: actions/checkout@v3
       - name: check-branch-existence
         id: check-branch-existence
